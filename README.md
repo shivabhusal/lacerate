@@ -19,9 +19,11 @@ Lacerate is an OpenSource Rails application under [MIT License](https://opensour
 Google lets normal user to search queries as much they like, however, they don't like bots goofing around the site. So, suspecious activity can get our IP blacklisted for future access. So, we should not let that happen. Imitating human search patterns is the only way to get unnoticed by Google's bot detection algorithm. Things we gonna try are:- 
 
 - Set a Query Rate Limit
-  - It is recommended by experts to keep minimum pause/gap of 5 seconds in between two consecutive query
-- Set Your Referrer URL 
+  - It is recommended by experts to keep minimum pause/gap of 2 seconds in between two consecutive queries.
+- Set Your Referrer URL
+  - since a genuine request(like a human user) start from `google.com` and then search begins; like wise, need to set referral of that web request to `google.com` or something.
 - Create Unique User Agents for your Proxies 
+  - familiar user agent like google chrome to make believe google that this request is originated from user's browser.
 
 #### Speeding up searches 
 (talking about thousands of keywords)  
