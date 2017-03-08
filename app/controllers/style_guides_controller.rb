@@ -1,8 +1,14 @@
 class StyleGuidesController < ApplicationController
+  layout 'dashboard'
+
+  def index
+    render :buttons
+  end
+
   def buttons
   end
 
-  def flot
+  def morris_charts
   end
 
   def forms

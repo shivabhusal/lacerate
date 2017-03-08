@@ -1,0 +1,46 @@
+.navbar-default.sidebar[role="navigation"]
+  .sidebar-nav.navbar-collapse
+    ul#side-menu.nav
+      li.sidebar-search
+        .input-group.custom-search-form
+          input.form-control[type="text" placeholder="Search..."]
+          span.input-group-btn
+            button.btn.btn-default[type="button"]
+              i.fa.fa-search
+      li
+        = link_to reports_path do
+          i.fa.fa-dashboard.fa-fw
+          |  Dashboard
+      li
+        a[href="#"]
+          i.fa.fa-wrench.fa-fw
+          |  UI Elements / Style Guide
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            = link_to panels_style_guides_path do
+              | Panels and Wells
+          li
+            = link_to buttons_style_guides_path do
+              | Buttons
+          li
+            = link_to notifications_style_guides_path do
+              | Notifications
+          li
+            = link_to tyography_style_guides_path do
+              | Typography
+          li
+            = link_to icons_style_guides_path do
+              |  Icons
+          li
+            = link_to grid_style_guides_path do
+              | Grid
+          li
+            = link_to morris_charts_style_guides_path do
+              | Morris.js / Graphs
+          li
+            = link_to forms_style_guides_path do
+              | Sample Form
+          li
+            = link_to tables_style_guides_path do
+              | Sample Table
