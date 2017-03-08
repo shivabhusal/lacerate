@@ -1,23 +1,18 @@
 Rails.application.routes.draw do
-  get 'style_guides/buttons'
-
-  get 'style_guides/flot'
-
-  get 'style_guides/forms'
-
-  get 'style_guides/grid'
-
-  get 'style_guides/icons'
-
-  get 'style_guides/tyography'
-
-  get 'style_guides/panels'
-
-  get 'style_guides/tables'
-
-  get 'style_guides/notifications'
-
   root 'pages#home'
 
   resources :reports
+  resources :style_guides, only: :index do
+    collection do
+      get :buttons
+      get :morris_charts
+      get :forms
+      get :grid
+      get :icons
+      get :tyography
+      get :panels
+      get :tables
+      get :notifications
+    end
+  end
 end

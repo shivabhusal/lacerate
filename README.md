@@ -32,6 +32,10 @@ When there are thousands of keywords you need to take care of, employing a singl
 - get rid of duplicate keywords
 - It also requires you to evenly distribute the keywords so that no re-work occurs and all workers complete around the same time.
 
+### For maintainers
+- adding new elements
+  - If you need to add view elements as per new features, you can see all the visual elements from our already setup style-guides. This style guide will only appear in development environment; an extra menu-item in the sidebar will appear called "UI Elements/Style Guide". You can then either copy the code(in SLIM) from `views/style_guides/*.slim` or write it your self. It is supposed to make code consistent and speed up development.
+
 ### Tools used
   * Ruby: `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]`
   * Rails: `Rails 5.0.2` 
