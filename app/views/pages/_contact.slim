@@ -1,0 +1,51 @@
+/! Contact
+section#contact.home-section.bg-white
+  .container
+    .row
+      .col-md-offset-2.col-md-8
+        .section-heading
+          h2 Contact us
+          p Contact via form below and we will be get in touch with you within 24 hours.
+    .row
+      .col-md-offset-2.col-md-8
+        #sendmessage Your message has been sent. Thank you!
+        #errormessage
+        form.contactForm action="" method="post" role="form"
+          .form-group
+            input#name.form-control data-msg=("Please enter at least 4 chars") data-rule="minlen:4" name="name" placeholder=("Your Name") type="text" /
+            .validation
+          .form-group
+            input#email.form-control data-msg=("Please enter a valid email") data-rule="email" name="email" placeholder=("Your Email") type="email" /
+            .validation
+          .form-group
+            input#subject.form-control data-msg=("Please enter at least 8 chars of subject") data-rule="minlen:4" name="subject" placeholder="Subject" type="text" /
+            .validation
+          .form-group
+            textarea.form-control data-msg=("Please write something for us") data-rule="required" name="message" placeholder="Message" rows="5"
+            .validation
+          .text-center
+            button.btn.btn-theme.btn-lg.btn-block type="submit"  Send Message
+    .row.mar-top30
+      .col-md-offset-2.col-md-8
+        h5 We're on social networks
+        ul.social-network
+          li
+            a href="#"
+              span.fa-stack.fa-2x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-facebook.fa-stack-1x.fa-inverse
+          li
+            a href="#"
+              span.fa-stack.fa-2x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-dribbble.fa-stack-1x.fa-inverse
+          li
+            a href="#"
+              span.fa-stack.fa-2x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-twitter.fa-stack-1x.fa-inverse
+          li
+            a href="#"
+              span.fa-stack.fa-2x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-pinterest.fa-stack-1x.fa-inverse
