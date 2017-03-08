@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 Rails.application.config.assets.paths << Rails.root.join("app", "vendor", "assets", "fonts")
-Rails.application.config.assets.precompile += %w( static.css static.js)
+Rails.application.config.assets.precompile += %w( static.scss static.js dashboard.js dashboard.scss)
 
 Rails.application.config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
 Rails.application.config.assets.paths << Rails.root.join("app", "vendor", "assets", "stylesheets", 'static')

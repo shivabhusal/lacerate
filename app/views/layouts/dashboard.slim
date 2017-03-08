@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Lacerate
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'dashboard', media: 'all'
+    = javascript_include_tag 'dashboard'
+  body
+    = yield
