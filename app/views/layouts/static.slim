@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title Lacerate
+      = csrf_meta_tags
+
+    = stylesheet_link_tag    'static', media: 'all', 'data-turbolinks-track': 'reload'
+  body
+    = yield
+    = javascript_include_tag 'static'

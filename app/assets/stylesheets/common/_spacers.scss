@@ -1,0 +1,38 @@
+/* Styles related to spacing are found here */
+$positions: top right bottom left;
+$types: margin padding;
+
+/* Eg: .margin10top */
+/* Eg: .padding10top */
+@each $type in $types {
+  @each $position in $positions {
+    @for $index from 0 through 20 {
+      $value: $index * 5;
+      .#{$type}#{$value}#{$position} {
+        #{$type}-#{$position}: #{$value}px;
+      }
+    }
+  }
+}
+
+/* Eg: .margin10all */
+/* Eg: .padding10all */
+@each $type in $types {
+  @for $index from 0 through 20 {
+    $value: $index * 5;
+    .#{$type}#{$value}all {
+      #{$type}: #{$value}px;
+    }
+  }
+}
+
+/* Eg: .min500height */
+/* Eg: .min4500height */
+/* Eg: .min100height */
+/* Eg: .min50height */
+@for $index from 1 through 30 {
+  $value: $index * 25;
+  .min#{$value}height {
+    min-height: #{$value}px;
+  }
+}
