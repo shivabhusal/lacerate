@@ -1,0 +1,39 @@
+.row
+  .col-lg-3.col-md-6
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-xs-3
+            i.fa.fa-th-list.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = reports.done.count
+            div
+              | Success Reports
+
+      = link_to reports_path(only_done: true)
+        .panel-footer
+          span.pull-left
+            | View Details
+          span.pull-right
+            i.fa.fa-arrow-circle-right
+          .clearfix
+
+  .col-lg-3.col-md-6
+    .panel.panel-green
+      .panel-heading
+        .row
+          .col-xs-3
+            i.fa.fa-tasks.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = reports.pending.count
+            div
+              | Pending Reports
+      = link_to reports_path(only_pending: true)
+        .panel-footer
+          span.pull-left
+            | View Details
+          span.pull-right
+            i.fa.fa-arrow-circle-right
+          .clearfix

@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require dataTables/jquery.dataTables
 //= require dashboard/index
+//= require dashboard/reports.js

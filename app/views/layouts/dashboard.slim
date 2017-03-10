@@ -8,4 +8,8 @@ html
     = javascript_include_tag 'dashboard'
   body class="#{controller_name} #{action_name}"
     = render 'layouts/dashboard/header/menu'
-    = yield
+    #page-wrapper
+      .row.clearfix
+        .col-lg-12
+          = render 'flash_message'
+      = yield
