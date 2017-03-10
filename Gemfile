@@ -33,16 +33,28 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
+gem 'devise', '~> 4.2.0'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'carrierwave', '~> 1.0'
+
 group :development, :test do
+  gem 'figaro'
+  gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5', require: 'rspec/rails'
+
   gem 'pry-rails'
+  gem 'rubocop', require: false
+  gem 'mailcatcher', require: false # Catches emails in localhost, See https://mailcatcher.me/
+  gem 'zeus', require: false
 end
 
 group :development do
@@ -52,6 +64,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

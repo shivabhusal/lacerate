@@ -39,6 +39,8 @@ When there are thousands of keywords you need to take care of, employing a singl
 ### Tools used
   * Ruby: `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]`
   * Rails: `Rails 5.0.2` 
+  * ActiveModel::Searilizer
+    - ActiveModel::Serializer allows you to define which attributes and relationships you would like to include in your JSON response. It also acts as a presenter where you can define custom methods to display extra information or override how it’s displayed in your JSON.
     
 ### System dependencies
   * PG Database

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'pages#home'
 
   resources :reports
+
   resources :style_guides, only: :index do
     collection do
       get :buttons
@@ -13,6 +15,12 @@ Rails.application.routes.draw do
       get :panels
       get :tables
       get :notifications
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :reports, defaults: { format: 'json' }
     end
   end
 end
