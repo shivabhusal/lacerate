@@ -1,0 +1,14 @@
+.row.clearfix
+  .col-lg-12
+    h1.page-header
+      | Search Result Report for keyword: "#{@result.keyword}"
+.row
+  .col-md-12
+    dl.dl-horizontal
+      dt Parent/Source CSV file:
+      dd = link_to @result.report.payload.file.filename,  @result.report.payload.file.file
+
+      dt Status:
+      dd
+        span class="#{label_for(@result.status)}"
+          = @result.status

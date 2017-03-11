@@ -33,7 +33,7 @@
           tbody
             - @report.search_results.each do |result|
               tr.odd.gradeX
-                td = result.keyword
+                td = link_to result.keyword, search_result_path(result)
                 td = result.total_adwords_advertisers_at_top
                 td = result.total_adwords_advertisers_at_bottom
                 td = result.total_non_adwords_links
