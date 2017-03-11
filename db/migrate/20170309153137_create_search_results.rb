@@ -3,11 +3,11 @@ class CreateSearchResults < ActiveRecord::Migration[5.0]
     create_table :search_results do |t|
       t.string          :keyword
       t.integer         :total_adwords_advertisers_at_top
-      t.text            :adwords_links_at_top
+      t.text            :adwords_links_at_top,        array: true,        default: []
       t.integer         :total_adwords_advertisers_at_bottom
-      t.text            :adwords_links_at_bottom
+      t.text            :adwords_links_at_bottom,     array: true,        default: []
       t.integer         :total_non_adwords_links
-      t.text            :non_adwords_links
+      t.text            :non_adwords_links,           array: true,        default: []
       t.integer         :total_count_of_links
       t.decimal         :time_taken
       t.bigint          :total_number_of_records

@@ -8,7 +8,47 @@
       dt Parent/Source CSV file:
       dd = link_to @result.report.payload.file.filename,  @result.report.payload.file.file
 
+      dt Back to Report:
+      dd
+        = link_to "Report ##{@result.id}", report_path(@result.report)
       dt Status:
       dd
         span class="#{label_for(@result.status)}"
           = @result.status
+
+
+    hr
+    dl.dl-horizontal
+      h4 Top panel Advertizers (#{@result.total_adwords_advertisers_at_top})
+      dt Links
+      dd
+        ul
+          - @result.adwords_links_at_top.each do |link|
+            li = link_to link, link
+
+
+    dl.dl-horizontal
+      h4 Bottom panel Advertizers (#{@result.total_adwords_advertisers_at_bottom})
+      dt Links
+      dd
+        ul
+          - @result.adwords_links_at_bottom.each do |link|
+            li = link_to link, link
+
+
+    hr
+    dl.dl-horizontal
+      h4 Organic results (#{@result.total_non_adwords_links})
+      dt Links
+      dd
+        ul
+          - @result.non_adwords_links.each do |link|
+            li = link_to URI.decode(link)[7..-1], URI.decode(link)[7..-1]
+    hr
+    h4 Other Details
+    = link_to preview_search_result_path(@result), target: '_blank' do
+      i.fa.fa-history
+      |  See Preview
+    p
+      = @result.total_number_of_records
+      |  results found
