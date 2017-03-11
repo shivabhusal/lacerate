@@ -11,7 +11,7 @@
             div
               | Success Reports
 
-      = link_to reports_path(only_done: true)
+      = link_to reports_path(filter: 'done')
         .panel-footer
           span.pull-left
             | View Details
@@ -30,7 +30,7 @@
               = reports.pending.count
             div
               | Pending Reports
-      = link_to reports_path(only_pending: true)
+      = link_to reports_path(filter: 'pending')
         .panel-footer
           span.pull-left
             | View Details

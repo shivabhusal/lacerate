@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :reports
+  resources :search_results, only: :show
 
   resources :style_guides, only: :index do
     collection do

@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @reports = Report.all
+    @reports = current_user.reports.try(status_params)
   end
 
   def new
@@ -10,11 +10,11 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report = User.first.reports.find(params[:id])
+    @report = current_user.reports.find(params[:id])
   end
 
   def create
-    @report = User.first.reports.new(report_params)
+    @report = current_user.reports.new(report_params)
     if @report.save
       redirect_to reports_path,
                   notice: 'Processing is in progress! It may take a few seconds to complete the processing, stay tuned.'
@@ -30,4 +30,8 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:payload)
   end
 
+  # Filter user supplied params for security reasons.
+  def status_params
+    Report.statuses.include?(params[:filter]) ? params[:filter] : 'all'
+  end
 end
