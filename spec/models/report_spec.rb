@@ -6,6 +6,7 @@
 #  user_id    :integer
 #  payload    :string
 #  status     :integer          default("0")
+#  metadata   :jsonb            default("{}")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -29,8 +29,12 @@ Google lets normal user to search queries as much they like, however, they don't
 (talking about thousands of keywords)  
 When there are thousands of keywords you need to take care of, employing a single server(IP) to query with necessary pauses will be pretty time consuming. So, best way is to 
 - employ additional servers to crawl via the internet.
-- get rid of duplicate keywords
+    - for the purpose, have planned to use 5 different heroku servers/dynos with separate IP 
+        - they will be using the same Redis instance via connection pool.
+        - they will be using the same PG-Database as they are the part of the same system.
+- get rid of duplicate keywords  
 - It also requires you to evenly distribute the keywords so that no re-work occurs and all workers complete around the same time.
+    - turns out, you will just have to assign jobs in sidekiq; since all the sidekiq instances share the same `Redis` instance, they will pick jobs from the default queues and execute. In this way by the end of execution, all the workers will have completed almost equal number of jobs.
 
 ### For maintainers
 - adding new elements

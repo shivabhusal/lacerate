@@ -44,7 +44,8 @@ gem 'devise', '~> 4.2.0'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'carrierwave', '~> 1.0'
-
+gem 'sidekiq'
+gem 'httparty'
 group :development, :test do
   gem 'figaro'
   gem 'annotate'

@@ -10,10 +10,11 @@ class CreateSearchResults < ActiveRecord::Migration[5.0]
       t.text            :non_adwords_links
       t.integer         :total_count_of_links
       t.decimal         :time_taken
-      t.integer         :total_number_of_records
+      t.bigint          :total_number_of_records
       t.text            :page_cache
       t.references      :report,                      foreign_key: true
       t.integer         :status,                      index: true,        default: 0
+      t.jsonb           :metadata,                    default: {}
       t.timestamps
     end
   end
