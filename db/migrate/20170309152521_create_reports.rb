@@ -4,6 +4,7 @@ class CreateReports < ActiveRecord::Migration[5.0]
       t.references  :user,      foreign_key: true
       t.string      :payload
       t.integer     :status,    index: true,      default: 0
+      t.jsonb       :metadata,                    default: {}
       t.timestamps
     end
   end

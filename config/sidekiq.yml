@@ -1,0 +1,7 @@
+---
+:concurrency: 5
+production:
+  :concurrency: 10
+  # Set timeout to 8 on Heroku, longer if you manage your own systems.
+  :timeout: 8
+  :logfile: ./log/sidekiq.log

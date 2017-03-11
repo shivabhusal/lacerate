@@ -1,0 +1,46 @@
+.row.clearfix
+  .col-lg-12
+    h1.page-header
+      | Report ##{@report.id}
+.row
+  .col-md-12
+    dl.dl-horizontal
+      dt CSV file with keywords:
+      dd = link_to @report.payload.file.filename, @report.payload.file.file
+
+      dt Status:
+      dd
+        span class="#{label_for(@report.status)}"
+          = @report.status
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        |  List of results from keyword searches
+      .panel-body
+        table#result-list.table.table-striped.table-bordered.table-hover[width="100%"]
+          thead
+            tr
+              th Keyword
+              th # of AdWords on top
+              th # of AdWords on bottom
+              th # of non-Adwords
+              th # of links
+              th # of results
+              th time taken
+              th Status
+              th Request Date
+          tbody
+            - @report.search_results.each do |result|
+              tr.odd.gradeX
+                td = result.keyword
+                td = result.total_adwords_advertisers_at_top
+                td = result.total_adwords_advertisers_at_bottom
+                td = result.total_non_adwords_links
+                td = result.total_count_of_links
+                td = result.total_number_of_records
+                td = result.time_taken
+                td
+                  span  class="#{label_for(result.status)}"
+                    = result.status
+                td = result.created_at.strftime('%m/%d/%Y %I:%M:%S%p')

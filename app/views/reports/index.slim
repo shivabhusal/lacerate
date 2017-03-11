@@ -33,6 +33,8 @@
               th
                 | Status
               th
+                | # of Keywords
+              th
                 | Request Date
           tbody
             - @reports.each do |report|
@@ -40,8 +42,14 @@
                 td
                   = link_to "Report ##{report.id}", report_path(report)
                 td
-                  = link_to report.payload.file.filename, report.payload.url
+                  = link_to report.payload.url, title: 'Download' do
+                    i.fa.fa-download
+                  | &nbsp;
+                  = report.payload.file.filename
                 td.center
-                  = report.status
+                  span  class="#{label_for(report.status)}"
+                    = report.status
+                td.center
+                  = report.search_results.count
                 td.center
                   = report.created_at

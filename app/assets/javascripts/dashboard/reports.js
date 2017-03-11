@@ -1,4 +1,4 @@
 $(function(){
-  if($('.reports.index').length === 0 ) return false;
-  $('#report-list').DataTable();
+  if($('.reports.index, .reports.show').length === 0 ) return false;
+  $('#report-list, #result-list').DataTable();
 });

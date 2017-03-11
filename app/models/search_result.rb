@@ -16,6 +16,7 @@
 #  page_cache                          :text
 #  report_id                           :integer
 #  status                              :integer          default("0")
+#  metadata                            :jsonb            default("{}")
 #  created_at                          :datetime         not null
 #  updated_at                          :datetime         not null
 #
@@ -23,4 +24,12 @@
 class SearchResult < ApplicationRecord
   belongs_to :report
   enum status: [:pending, :done]
+  after_commit :update_report
+
+  private
+  def update_report
+    if self.report.keyword_count == self.report.search_results.count
+      self.report.done!
+    end
+  end
 end
