@@ -49,6 +49,8 @@
                 td.center
                   span  class="#{label_for(report.status)}"
                     = report.status
+                  - if report.pending?
+                    = image_tag 'loader.gif', width: 20
                 td.center
                   = report.search_results.count
                 td.center

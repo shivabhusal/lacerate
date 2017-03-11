@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :reports
-  resources :search_results, only: :show
+  resources :search_results, only: :show do
+    member do
+      get :preview
+    end
+  end
 
   resources :style_guides, only: :index do
     collection do

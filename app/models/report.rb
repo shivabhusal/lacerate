@@ -27,7 +27,7 @@ class Report < ApplicationRecord
 
   def activate_workers
     keywords = CSV.parse(File.read(payload.file.file)).flatten.uniq
-    self.update(keyword_count: keywords.count)
+    self.update(keyword_count: keywords.count, status: :in_progress)
 
     keywords.each_with_index do |keyword, index|
       ScrapeWorker.perform_in((index*5).seconds, keyword, self.id)

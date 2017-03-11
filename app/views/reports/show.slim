@@ -33,7 +33,11 @@
           tbody
             - @report.search_results.each do |result|
               tr.odd.gradeX
-                td = link_to result.keyword, search_result_path(result)
+                td
+                  = link_to result.keyword, search_result_path(result)
+                  | &nbsp;
+                  = link_to preview_search_result_path(result), target: '_blank', title: 'See Preview' do
+                    i.fa.fa-history
                 td = result.total_adwords_advertisers_at_top
                 td = result.total_adwords_advertisers_at_bottom
                 td = result.total_non_adwords_links
