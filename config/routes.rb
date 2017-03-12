@@ -29,7 +29,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :reports, defaults: { format: 'json' }
+      resources :reports, defaults: { format: 'json' } do
+        resources :search_results, defaults: { format: 'json' }  do
+          member do
+            get :preview
+          end
+        end
+      end
     end
   end
 end

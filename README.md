@@ -46,12 +46,24 @@ When there are thousands of keywords you need to take care of, employing a singl
   * ActiveModel::Searilizer
     - ActiveModel::Serializer allows you to define which attributes and relationships you would like to include in your JSON response. It also acts as a presenter where you can define custom methods to display extra information or override how it’s displayed in your JSON.
     
+### Known issues:
+- **Responsiveness of Charts**
+    - It appears perfect no matter which device you load it from. However, if you load in wider screens and then Zoom-In, you might encounter overflow.
+    - But if you zoom-in and refresh the page, it should apepar just fine.
+    - **Issue:** Chart does not re-render when you resize the window.
 ### System dependencies
   * PG Database
   * Redis for Sidekiq
 
 ### Configuration
   * see the `application.yml.sample` for sample environment variables with dummy data.
+  
+### API documentation
+  * Api is well documented and mounted to `http://host:post/dev/v1`
+  * For production: ``
+  * Our API documentation is easy to read and conprehensible.
+  * If you update the test cases in `spec/acceptance/**/*_spec.rb`, then you will have to run `rails docs:generate`. This will generate the latest API doc in `public/dev/v1`. 
+  * **Upside:** Clients will always be able to see the latest version of the document.
 
 ### Database creation
   * `rails db:create`

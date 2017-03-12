@@ -47,6 +47,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'sidekiq'
 gem 'httparty'
 group :development, :test do
+  gem 'rspec_api_documentation'
+
   gem 'figaro'
   gem 'annotate'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,6 +71,7 @@ end
 
 
 group :test do
+  gem 'faker'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1'

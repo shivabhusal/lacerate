@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Results API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search Results API</h1>
+
+      <div class="article">
+        <h2>Listing Search results of a Report</h2>
+        <h3>GET api/v1/reports/1/search_results</h3>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Host: example.org
+Cookie: </pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET api/v1/reports/1/search_results</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;eb0bccaa868f472a35a2fcd197b1c844&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 543bcb97-d73b-4c79-8337-700c1f052c1a
+X-Runtime: 0.018615
+Content-Length: 1930</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;2&quot;,
+      &quot;type&quot;: &quot;search-results&quot;,
+      &quot;attributes&quot;: {
+        &quot;keyword&quot;: &quot;program&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;total-adwords-advertisers-at-top&quot;: 7,
+        &quot;adwords-links-at-top&quot;: [
+          &quot;http://schneider.biz/omer_gutmann&quot;,
+          &quot;http://stracke.com/annie&quot;,
+          &quot;http://cormier.net/destinee&quot;,
+          &quot;http://kuhlmannicolas.net/orlando.senger&quot;,
+          &quot;http://rodriguezmcdermott.io/dillon.fay&quot;,
+          &quot;http://hagenes.biz/cecilia_mcdermott&quot;,
+          &quot;http://klocko.org/benedict&quot;
+        ],
+        &quot;total-adwords-advertisers-at-bottom&quot;: 3,
+        &quot;adwords-links-at-bottom&quot;: [
+          &quot;http://satterfield.org/holly.gulgowski&quot;,
+          &quot;http://jonesharris.org/joey&quot;,
+          &quot;http://kriskirlin.co/berneice.pacocha&quot;
+        ],
+        &quot;total-non-adwords-links&quot;: 0,
+        &quot;non-adwords-links&quot;: [
+
+        ],
+        &quot;total-count-of-links&quot;: 10,
+        &quot;time-taken&quot;: null,
+        &quot;total-number-of-records&quot;: 7236718432,
+        &quot;created-at&quot;: &quot;2017-03-12T10:19:26Z&quot;,
+        &quot;updated-at&quot;: &quot;2017-03-12T10:19:26Z&quot;
+      },
+      &quot;relationships&quot;: {
+        &quot;report&quot;: {
+          &quot;data&quot;: {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;reports&quot;
+          }
+        }
+      }
+    },
+    {
+      &quot;id&quot;: &quot;1&quot;,
+      &quot;type&quot;: &quot;search-results&quot;,
+      &quot;attributes&quot;: {
+        &quot;keyword&quot;: &quot;sensor&quot;,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;total-adwords-advertisers-at-top&quot;: 3,
+        &quot;adwords-links-at-top&quot;: [
+          &quot;http://goyettewolff.name/cullen&quot;,
+          &quot;http://kirlin.com/colleen&quot;,
+          &quot;http://wolf.org/sidney&quot;
+        ],
+        &quot;total-adwords-advertisers-at-bottom&quot;: 6,
+        &quot;adwords-links-at-bottom&quot;: [
+          &quot;http://white.com/kareem_lockman&quot;,
+          &quot;http://luettgen.name/jarrett.braun&quot;,
+          &quot;http://schowalterrowe.net/alyson&quot;,
+          &quot;http://hirthe.net/haylee_bernier&quot;,
+          &quot;http://brakuswhite.info/kristofer.tromp&quot;,
+          &quot;http://gulgowski.com/moriah_stanton&quot;
+        ],
+        &quot;total-non-adwords-links&quot;: 9,
+        &quot;non-adwords-links&quot;: [
+          &quot;http://rohan.org/kaci&quot;,
+          &quot;http://jonesmckenzie.org/davin&quot;,
+          &quot;http://prosacco.io/elaina&quot;,
+          &quot;http://turner.name/melisa&quot;,
+          &quot;http://bergstrom.com/theodore&quot;,
+          &quot;http://purdy.name/audrey_armstrong&quot;,
+          &quot;http://okuneva.io/richmond_bechtelar&quot;,
+          &quot;http://mueller.com/seth&quot;,
+          &quot;http://hermiston.name/lia.treutel&quot;
+        ],
+        &quot;total-count-of-links&quot;: 18,
+        &quot;time-taken&quot;: null,
+        &quot;total-number-of-records&quot;: 6705022382,
+        &quot;created-at&quot;: &quot;2017-03-12T10:19:26Z&quot;,
+        &quot;updated-at&quot;: &quot;2017-03-12T10:19:26Z&quot;
+      },
+      &quot;relationships&quot;: {
+        &quot;report&quot;: {
+          &quot;data&quot;: {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;reports&quot;
+          }
+        }
+      }
+    }
+  ]
+}</pre>
+      </div>
+    </div>
+  </body>
+</html>
