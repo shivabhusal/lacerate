@@ -49,8 +49,10 @@
                 td.center
                   span  class="#{label_for(report.status)}"
                     = report.status
-                  - if report.pending?
-                    = image_tag 'loader.gif', title: 'Processing is in progress. Please refresh the page in a while to see if its done.', width: 20
+                  - if report.pending? || report.in_progress?
+                    = image_tag 'loader.gif',
+                        title: 'Processing is in progress. Please refresh the page in a while to see if its done.',
+                        width: 20
                 td.center
                   = report.search_results.count
                 td.center

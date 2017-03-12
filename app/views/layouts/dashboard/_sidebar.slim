@@ -1,5 +1,10 @@
 .navbar-default.sidebar[role="navigation"]
   .sidebar-nav.navbar-collapse
+    .container.margin5top
+      - if current_user.present?
+        = image_tag current_user.image, width: 100, class: ''
+        p
+          strong = current_user.full_name
     ul#side-menu.nav
       li.sidebar-search
         .input-group.custom-search-form

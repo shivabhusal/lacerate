@@ -1,4 +1,8 @@
 # README
+[![CircleCI](https://circleci.com/gh/shivabhusal/lacerate.svg?style=svg)](https://circleci.com/gh/shivabhusal/lacerate)
+[![Code Climate](https://lima.codeclimate.com/github/shivabhusal/lacerate/badges/gpa.svg)](https://lima.codeclimate.com/github/shivabhusal/lacerate)  
+
+---
 
 Lacerate is an OpenSource Rails application under [MIT License](https://opensource.org/licenses/MIT). Lacerate basically takes keywords in a CSV file, scrapes Google and extracts useful information to generate analytics and report for business and SEO analysis.
 

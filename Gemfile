@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use pg as the database for Active Record
-gem 'pg'
+gem 'pg', '0.19.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -41,11 +41,14 @@ gem 'font-awesome-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 
 gem 'devise', '~> 4.2.0'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+
+gem 'omniauth-facebook','4.0.0'
+gem 'omniauth-google-oauth2', '0.4.1'
+
 gem 'carrierwave', '~> 1.0'
-gem 'sidekiq'
-gem 'httparty'
+gem 'sidekiq', '4.2.9'
+gem 'httparty', '~> 0.14.0'
+
 group :development, :test do
   gem 'rspec_api_documentation'
 
