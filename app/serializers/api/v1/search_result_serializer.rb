@@ -1,6 +1,17 @@
 module Api::V1
   class SearchResultSerializer < ::ActiveModel::Serializer
-    attributes :id, :payload, :status
+    attributes :id, :keyword, :status,
+               :total_adwords_advertisers_at_top,
+               :adwords_links_at_top,
+               :total_adwords_advertisers_at_bottom,
+               :adwords_links_at_bottom,
+               :total_non_adwords_links,
+               :non_adwords_links,
+               :total_count_of_links,
+               :time_taken,
+               :total_number_of_records,
+               :created_at,
+               :updated_at
     belongs_to :report
 
 

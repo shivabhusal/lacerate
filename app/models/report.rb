@@ -22,7 +22,7 @@ class Report < ApplicationRecord
   enum status: [:pending, :in_progress, :done]
 
   after_create :activate_workers #:unless => :persisted?
-  scope :from_date, ->(date){where('created_at between ? and ?', date.beginning_of_day, date.end_of_day)}
+  scope :from_date, ->(date) { where('created_at between ? and ?', date.beginning_of_day, date.end_of_day) }
 
   private
 

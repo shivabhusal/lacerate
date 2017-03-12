@@ -3,21 +3,21 @@ module Api::V1
     respond_to :json
 
     def index
-      reports = Report.all
+      reports = current_user.reports.all
       respond_with do |format|
         format.json { render json: reports , status: 200 }
       end
     end
 
     def show
-      report = Report.find(params[:id])
+      report = current_user.reports.find(params[:id])
       respond_with do |format|
         format.json { render json: report, status: 200 }
       end
     end
 
     def create
-      report = Report.new(report_params)
+      report = current_user.reports.new(report_params)
       if report.save
         respond_with do |format|
           format.json { render json: report, status: 201 }

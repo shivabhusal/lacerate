@@ -5,3 +5,8 @@
 //= require ./dataTables.bootstrap.min
 //= require ./dataTables.responsive
 //= require ./sb-admin-2.min
+//= require_self
+
+$(function () {
+  $('#dataTables-example').DataTable();
+});
