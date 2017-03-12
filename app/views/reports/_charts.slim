@@ -4,25 +4,40 @@
     .panel.panel-default
       .panel-heading
         i.fa.fa-bar-chart-o.fa-fw
-        |  Area Chart Example
+        |  Analytics: Reports made and Keywords searched per day for last 30 days
         .pull-right
           .btn-group
             button.btn.btn-default.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown"]
-              |  Actions
+              |  Filters&nbsp;
               span.caret
             ul.dropdown-menu.pull-right[role="menu"]
               li
-                a[href="#"]
-                  | Action
+                = link_to reports_path(chart_filter: 5) do
+                  | Last 5 days
               li
-                a[href="#"]
-                  | Another action
+                = link_to reports_path(chart_filter: 10) do
+                  | Last 10 days
               li
-                a[href="#"]
-                  | Something else here
+                = link_to reports_path(chart_filter: 30) do
+                  | Last 30 days
+              li
+                = link_to reports_path(chart_filter: 60) do
+                  | Last 60 days
+              li
+                = link_to reports_path(chart_filter: 90) do
+                  | Last 90 year
               li.divider
               li
-                a[href="#"]
-                  | Separated link
+                = link_to reports_path(chart_filter: 365) do
+                  | Last Year
       .panel-body
-        #morris-area-chart
+        #report-analytics
+javascript:
+  Morris.Area({
+    element: 'report-analytics',
+    data: #{report_analytics_data(reports)} ,
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Number of Report', 'Keywords Searched']
+  });
+
