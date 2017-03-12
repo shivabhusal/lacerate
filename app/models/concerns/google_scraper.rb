@@ -60,7 +60,8 @@ class GoogleScraper
         total_count_of_links:                total_count_of_links,
         page_cache:                          http_response.encode('UTF-8'),
         status:                              :done,
-        keyword:                             keyword
+        keyword:                             keyword,
+        server_name:                         ENV['HOST']
     }
   end
 end

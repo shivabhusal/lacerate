@@ -22,6 +22,7 @@
 #
 
 class SearchResult < ApplicationRecord
+  store :metadata, accessors: [:server_name]
   belongs_to :report
   enum status: [:pending, :done]
   after_commit :update_report

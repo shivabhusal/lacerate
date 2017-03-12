@@ -68,7 +68,14 @@ When there are thousands of keywords you need to take care of, employing a singl
   * Our API documentation is easy to read and conprehensible.
   * If you update the test cases in `spec/acceptance/**/*_spec.rb`, then you will have to run `rails docs:generate`. This will generate the latest API doc in `public/dev/v1`. 
   * **Upside:** Clients will always be able to see the latest version of the document.
-
+#### OAuth 2 Guidelines
+  * If you wish to use OAuth2 authentication using facebook for your mobile apps/ FrontEnd App(in Ember) then here is the workflow.
+    - Send **GET** request at `users/auth/facebook`
+    - it will return a redirection response(code 302) to facebook; you need to make that get request; let user authorize the app.
+    - then it will respond with a redirection response with URL `/users/auth/facebook/callback` with `authorization code`; you will need to make that get request and in return you will get a `authentication_token` and user's `email` in JSON format.
+    - Mobile app will have to send the `authentication_token` and the `email` with every request to `Lecerate` via HTTP request header.
+    - > Note: `Content-Type →application/json; charset=utf-8` is a must.
+    
 ### Database creation
   * `rails db:create`
 
