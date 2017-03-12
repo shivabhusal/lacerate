@@ -31,16 +31,27 @@ class User < ApplicationRecord
   has_many :reports
   has_many :search_results, through: :reports
 
+  before_create :generate_authentication_token
+
   def full_name
     [first_name, last_name].join(' ')
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email                      = auth.info.email
-      user.password                   = Devise.friendly_token[0, 20]
-      user.first_name, user.last_name = auth.info.name.split(' ')
-      user.image                      = auth.info.image
+  def generate_authentication_token
+    loop do
+      self.authentication_token = SecureRandom.base64(64)
+      break unless User.find_by(authentication_token: authentication_token)
+    end
+  end
+
+  class << self
+    def from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email                      = auth.info.email
+        user.password                   = Devise.friendly_token[0, 20]
+        user.first_name, user.last_name = auth.info.name.split(' ')
+        user.image                      = auth.info.image
+      end
     end
   end
 end

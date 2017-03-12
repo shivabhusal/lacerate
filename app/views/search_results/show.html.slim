@@ -11,10 +11,15 @@
       dt Back to Report:
       dd
         = link_to "Report ##{@result.id}", report_path(@result.report)
+
       dt Status:
       dd
         span class="#{label_for(@result.status)}"
           = @result.status
+
+      dt Processing Server Name:
+      dd
+        = @result.server_name
 
 
     hr
