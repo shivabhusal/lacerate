@@ -6,5 +6,33 @@ html
 
     = stylesheet_link_tag    'static', media: 'all'
   body
+    = render 'layouts/static/header/menu'
+    /! /dl-menuwrapper
+    /! intro area
     = yield
+    = render 'layouts/static/about'
+
+    section#spacer1.home-section.spacer
+      .container
+        .row
+          .col-md-12
+            .color-light
+              h2.wow.bounceInDown data-wow-delay="1s"  Details are the key for perfection
+              p.lead.wow.bounceInUp data-wow-delay="2s"  We mix all detailed things together
+
+    = render 'layouts/static/services'
+
+    = render 'layouts/static/works'
+
+    section#spacer2.home-section.spacer
+      .container
+        .row
+          .col-md-12
+            .color-light
+              h2.wow.bounceInDown data-wow-delay="1s"  Details are the key for perfection
+              p.lead.wow.bounceInUp data-wow-delay="2s"  We mix all detailed things together
+
+    = render 'layouts/static/contact'
+
+    = render 'layouts/static/footer/copyright'
     = javascript_include_tag 'static'

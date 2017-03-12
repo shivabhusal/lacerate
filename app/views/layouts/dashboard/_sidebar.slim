@@ -1,9 +1,9 @@
 .navbar-default.sidebar[role="navigation"]
   .sidebar-nav.navbar-collapse
-    .container.margin5top
+    .margin15top
       - if current_user.present?
-        = image_tag current_user.image, width: 100, class: ''
-        p
+        = image_tag current_user.image, width: 100, class: 'thumbnail img-responsive center-block margin5bottom'
+        p.text-center
           strong = current_user.full_name
     ul#side-menu.nav
       li.sidebar-search
