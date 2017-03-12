@@ -13,12 +13,15 @@
             p
               span Awesome SEO Analysis tool
           .line-spacer
-          .btn.btn-sm.btn-default
-            i.fa.fa-chevron-sign-up
-            | Sign Up
-          .btn.btn-sm.btn-primary.margin10left
-            i.fa.fa-sign-in
-            |  Sign In
+          - unless current_user.present?
+            = link_to user_facebook_omniauth_authorize_path do
+              .btn.btn-sm.btn-default
+                i.fa.fa-facebook
+                |  Sign in with Facebook
+          - else
+            = link_to reports_path, class:'btn btn-sm btn-primary margin10left' do
+              i.fa.fa-dashboard
+              |  Goto Dashboard
 
 = render 'about'
 
