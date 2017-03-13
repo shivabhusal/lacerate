@@ -33,6 +33,7 @@ Google lets normal user to search queries as much they like, however, they don't
  Redis we are using; it has connection limit 20; and we are using 5 servers to process the data  
  
  ![alt tag](https://www.credera.com/wp-content/uploads/2014/01/575x193xRedis.png.pagespeed.ic.k_NR1a0yEK.png)
+ 
 #### Speeding up searches 
 (talking about thousands of keywords)  
 When there are thousands of keywords you need to take care of, employing a single server(IP) to query with necessary pauses will be pretty time consuming. So, best way is to 
@@ -61,6 +62,7 @@ When there are thousands of keywords you need to take care of, employing a singl
     - It appears perfect no matter which device you load it from. However, if you load in wider screens and then Zoom-In, you might encounter overflow.
     - But if you zoom-in and refresh the page, it should apepar just fine.
     - **Issue:** Chart does not re-render when you resize the window.
+
 ### System dependencies
   * PG Database
   * Redis for Sidekiq
@@ -72,12 +74,13 @@ When there are thousands of keywords you need to take care of, employing a singl
     - [https://lacera4.herokuapp.com/](https://lacera4.herokuapp.com/)
   * They share the same `PostGreSQL` database instance and `Redis` Instance so that they can collaborate on the separate jobs of same task. Sidekiq manages the job allocation via `Redis` database.
   * For now, both the `web` and `worker` dynos of all the instance are `on`. We can stop the web dynos of slave-application instance.
+
 ### Configuration
   * see the `application.yml.sample` for sample environment variables with dummy data.
   
 ### API documentation
   * Api is well documented and mounted to `http://host:post/dev/v1`
-  * For production: ``
+  * For production:
   * Our API documentation is easy to read and conprehensible.
   * If you update the test cases in `spec/acceptance/**/*_spec.rb`, then you will have to run `rails docs:generate`. This will generate the latest API doc in `public/dev/v1`. 
   * **Upside:** Clients will always be able to see the latest version of the document.
