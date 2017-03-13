@@ -44,11 +44,17 @@
     hr
     dl.dl-horizontal
       h4 Organic results (#{@result.total_non_adwords_links})
+      dt
+      dd
+        .alert.alert-warning role="alert"
+          i.fa.fa-exclamation-triangle
+          |  URLs listed below are encoded by Google, therefore you might not see the params properly.
+          |  However, when you click the links you will be sent to the appropriate page without any information loss.
       dt Links
       dd
         ul
           - @result.non_adwords_links.each do |link|
-            li = link_to URI.decode(link)[7..-1], URI.decode(link)[7..-1]
+            li = link_to URI.decode(link)[7..-1], "https://google.com#{URI.decode(link)}#"
     hr
     h4 Other Details
     = link_to preview_search_result_path(@result), target: '_blank' do

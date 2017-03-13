@@ -4,7 +4,7 @@
     .panel-heading
       a.accordion-toggle.collapsed data-toggle="collapse" href="##{panel_id}"
         p
-          | Adwords links at top: #{result[:non_adwords_links].count},
+          | Adwords links at top: #{result[:adwords_links_at_top].count},
           |  Adwords links at bottom: #{result[:adwords_links_at_bottom].count},
           |  Non-Adwords links: #{result[:non_adwords_links].count}
 
@@ -12,6 +12,24 @@
       .panel-body.overflow-y-scroll.max400height
         .row
           .col-md-8
+            h4 Adword Links at Top
+            ul.overflow-x-hidden
+              - result[:adwords_links_at_top].each do |link|
+                li = link_to link, link
+
+        .row
+          .col-md-8
+            h4 Adword Links at Bottom
+            ul.overflow-x-hidden
+              - result[:adwords_links_at_bottom].each do |link|
+                li = link_to link, link
+
+        .row
+          .col-md-8
+            .alert.alert-warning role="alert"
+              i.fa.fa-exclamation-triangle
+              |  URLs listed below are encoded by Google, therefore you might not see the params properly.
+              |  However, when you click the links you will be sent to the appropriate page without any information loss.
             ul.overflow-x-hidden
               - result[:non_adwords_links].each do |link|
-                li = link_to link, link
+                li = link_to URI.decode(link)[7..-1], "https://google.com#{URI.decode(link)}#"

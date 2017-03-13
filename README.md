@@ -64,7 +64,14 @@ When there are thousands of keywords you need to take care of, employing a singl
 ### System dependencies
   * PG Database
   * Redis for Sidekiq
-
+  * **Lacerate** has 5 live instances with separate IPs allocated by `Heroku`.
+    - [https://lacera.herokuapp.com/](https://lacera.herokuapp.com/)
+    - [https://lacera1.herokuapp.com/](https://lacera1.herokuapp.com/)
+    - [https://lacera2.herokuapp.com/](https://lacera2.herokuapp.com/)
+    - [https://lacera3.herokuapp.com/](https://lacera3.herokuapp.com/)
+    - [https://lacera4.herokuapp.com/](https://lacera4.herokuapp.com/)
+  * They share the same `PostGreSQL` database instance and `Redis` Instance so that they can collaborate on the separate jobs of same task. Sidekiq manages the job allocation via `Redis` database.
+  * For now, both the `web` and `worker` dynos of all the instance are `on`. We can stop the web dynos of slave-application instance.
 ### Configuration
   * see the `application.yml.sample` for sample environment variables with dummy data.
   

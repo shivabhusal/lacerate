@@ -23,20 +23,19 @@
               hr
               .form-group
                 label
-                  | Text Input with Placeholder
+                  | Query about repetition of certain URLs in AdWords.
                 input.form-control[placeholder="Enter text" name="query[url]"]
                 p.help-block
-                  | Example: How many times a specific URL shows up in SEO..form-group
+                  | Example: How many times a specific URL shows up in SEO.
 
               hr
               .form-group
                 .checkbox
                   input[placeholder="Enter text" type="checkbox" name="query[caret]" id="query-caret"]
                   label for="query-caret"
-                    | Text Input with Placeholder
+                    | Search for Occurance of slashes('/`) and carets('>')
                 p.help-block
                   | Example: How many keywords have URLs in SEO with 2+ /’s or 1+ >
 
               hr
-              = submit_tag 'Make Query', class: 'button btn btn-primary'
-
+              = submit_tag 'Launch Query', class: 'button btn btn-primary'
