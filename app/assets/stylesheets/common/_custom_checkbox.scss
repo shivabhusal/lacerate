@@ -1,0 +1,54 @@
+$checkbox-normal-color: #224978;
+$checkbox-active-color: #d1ab2b;
+.checkbox input[type="checkbox"] + label {
+  color: $checkbox-normal-color;
+  position: relative;
+  margin-left: 20px;
+}
+
+.checkbox input[type="checkbox"] + label::before {
+  /* Outer rectangle of checkbox button */
+  border: 1px solid $checkbox-normal-color;
+  content: ' ';
+  display: inline-block;
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+  transition: border 0.15s ease-in-out;
+  top: -2px;
+  left: -17px;
+  position: absolute;
+}
+
+.checkbox input[type="checkbox"] + label::after {
+  /* Inner Rectangle of checkbox button */
+  border: 0px solid $checkbox-active-color;
+  content: '';
+  background: transparent;
+  display: inline-block;
+  margin-right: 5px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  left: -12px;
+  top: 0px;
+  transition: border 0.15s ease-in-out;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* When button is active */
+.checkbox input[type="checkbox"]:checked + label::after {
+  font-family: "FontAwesome";
+  content: "";
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+  border-color: $checkbox-active-color;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+  color: $checkbox-active-color;
+}

@@ -1,7 +1,8 @@
 ---
 :concurrency: 5
 production:
-  :concurrency: 10
+  # Redis we are using; it has connection limit 20; and we are using 5 servers to process the data
+  :concurrency: 4
   # Set timeout to 8 on Heroku, longer if you manage your own systems.
   :timeout: 8
   :logfile: ./log/sidekiq.log
