@@ -1,5 +1,9 @@
 class Api::V1::BaseController < ApiController
+  class LacerateRecordNotFound < StandardError; end
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from LacerateRecordNotFound,       with: :not_found
+
   before_filter :authenticate_user!
 
   private
@@ -31,7 +35,10 @@ class Api::V1::BaseController < ApiController
 
   def not_found
     respond_to do |format|
-      format.json { render json: { errors: [status: 404, detail: 'Must be present.'] }, status: 404 }
+      format.json do
+        render json: { errors: [status: 404, detail: 'Record not found, please try again with something else.'] },
+               status: 404
+      end
     end
   end
 end

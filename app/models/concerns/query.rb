@@ -2,7 +2,7 @@
 # How many times a specific URL shows up in SEO.
 # How many keywords have URLs in SEO with 2+ /’s or 1+ >
 
-class Query
+class Query < ActiveModelSerializers::Model
   attr_reader :params, :user
 
   def initialize(params = {})
