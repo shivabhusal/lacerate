@@ -54,8 +54,10 @@ When there are thousands of keywords you need to take care of, employing a singl
 ### Tools used
   * Ruby: `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]`
   * Rails: `Rails 5.0.2` 
-  * ActiveModel::Searilizer
+  * ActiveModel::Serializer
     - ActiveModel::Serializer allows you to define which attributes and relationships you would like to include in your JSON response. It also acts as a presenter where you can define custom methods to display extra information or override how it’s displayed in your JSON.
+  * Sidekiq - as Background job processor
+  * Redis - Used by Sidekiq as database
     
 ### Known issues:
 - **Responsiveness of Charts**
@@ -79,11 +81,14 @@ When there are thousands of keywords you need to take care of, employing a singl
   * see the `application.yml.sample` for sample environment variables with dummy data.
   
 ### API documentation
-  * Api is well documented and mounted to `http://host:post/dev/v1`
-  * For production:
+  * Api is well documented and mounted to `http://host:post/dev/v1/`
+    * For production: `https://lacera.herokuapp.com/dev/v1/`
+    * For development: `http://localhost:3000/dev/v1/`
+    * > **Note**: Please make sure put an extra `/` in URLs above. Looks like there is some issue with `rspec_api_documentation` library.
   * Our API documentation is easy to read and conprehensible.
   * If you update the test cases in `spec/acceptance/**/*_spec.rb`, then you will have to run `rails docs:generate`. This will generate the latest API doc in `public/dev/v1`. 
   * **Upside:** Clients will always be able to see the latest version of the document.
+
 #### OAuth 2 Guidelines
 ![alt tag](https://lh4.googleusercontent.com/KYjK51XGELLNrNLfiE_owEZhJfzfTaxtuwQuhApMB6BEpeAY_Rmf0Mc6COJKVFr7otzNiUk3=s128-h128-e365) 
 * If you wish to use OAuth2 authentication using facebook for your mobile apps/ FrontEnd App(in Ember) then here is the workflow.

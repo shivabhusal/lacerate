@@ -22,14 +22,16 @@
 #
 
 class SearchResult < ApplicationRecord
-  store :metadata, accessors: [:server_name]
-  belongs_to :report
-  enum status: [:pending, :done]
-  after_commit :update_report
+  store         :metadata, accessors: [:server_name]
+  enum          :status => [:pending, :done]
+  after_commit  :update_report
 
-  private
+  belongs_to    :report
 
   class << self
+    # fixme: The implementation below cost time
+    # A better alternative would be Querying the Array fields in PG using PG's native operators.
+    # Because of lack of time and knowledge I could not implement those.
     def word_query(word)
       common_url_query { |link| link.include?(word) }
     end
@@ -62,9 +64,11 @@ class SearchResult < ApplicationRecord
 
   end
 
-  def update_report
-    if self.report.keyword_count == self.report.search_results.count
-      self.report.done!
+  private
+
+    def update_report
+      if self.report.keyword_count == self.report.search_results.count
+        self.report.done!
+      end
     end
-  end
 end
