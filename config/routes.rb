@@ -43,6 +43,13 @@ Rails.application.routes.draw do
           end
         end
       end
+
+
+      resources :queries, only: [] do
+        collection do
+          get :search
+        end
+      end
     end
   end
 end
