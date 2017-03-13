@@ -28,7 +28,11 @@ Google lets normal user to search queries as much they like, however, they don't
   - since a genuine request(like a human user) start from `google.com` and then search begins; like wise, need to set referral of that web request to `google.com` or something.
 - Create Unique User Agents for your Proxies 
   - familiar user agent like google chrome to make believe google that this request is originated from user's browser.
-
+  
+#### Redis Connection Limitation  
+ Redis we are using; it has connection limit 20; and we are using 5 servers to process the data  
+ 
+ ![alt tag](https://www.credera.com/wp-content/uploads/2014/01/575x193xRedis.png.pagespeed.ic.k_NR1a0yEK.png)
 #### Speeding up searches 
 (talking about thousands of keywords)  
 When there are thousands of keywords you need to take care of, employing a single server(IP) to query with necessary pauses will be pretty time consuming. So, best way is to 
@@ -42,7 +46,9 @@ When there are thousands of keywords you need to take care of, employing a singl
 
 ### For maintainers
 - adding new elements
-  - If you need to add view elements as per new features, you can see all the visual elements from our already setup style-guides. This style guide will only appear in development environment; an extra menu-item in the sidebar will appear called "UI Elements/Style Guide". You can then either copy the code(in SLIM) from `views/style_guides/*.slim` or write it your self. It is supposed to make code consistent and speed up development.
+  - If you need to add view elements as per new features, you can see all the visual elements from our already setup style-guides. This style guide will only appear in `development environment`; an extra menu-item in the sidebar will appear called "UI Elements/Style Guide". You can then either copy the code(in SLIM) from `views/style_guides/*.slim` or write it your self. It is supposed to make code consistent and speed up development.
+  
+  -  ![alt tag](./app/assets/images/style_guide.png)
 
 ### Tools used
   * Ruby: `ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]`
@@ -69,7 +75,8 @@ When there are thousands of keywords you need to take care of, employing a singl
   * If you update the test cases in `spec/acceptance/**/*_spec.rb`, then you will have to run `rails docs:generate`. This will generate the latest API doc in `public/dev/v1`. 
   * **Upside:** Clients will always be able to see the latest version of the document.
 #### OAuth 2 Guidelines
-  * If you wish to use OAuth2 authentication using facebook for your mobile apps/ FrontEnd App(in Ember) then here is the workflow.
+![alt tag](https://lh4.googleusercontent.com/KYjK51XGELLNrNLfiE_owEZhJfzfTaxtuwQuhApMB6BEpeAY_Rmf0Mc6COJKVFr7otzNiUk3=s128-h128-e365) 
+* If you wish to use OAuth2 authentication using facebook for your mobile apps/ FrontEnd App(in Ember) then here is the workflow.
     - Send **GET** request at `users/auth/facebook`
     - it will return a redirection response(code 302) to facebook; you need to make that get request; let user authorize the app.
     - then it will respond with a redirection response with URL `/users/auth/facebook/callback` with `authorization code`; you will need to make that get request and in return you will get a `authentication_token` and user's `email` in JSON format.
