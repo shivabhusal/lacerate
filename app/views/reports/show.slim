@@ -27,7 +27,7 @@
               th # of non-Adwords
               th # of links
               th # of results
-              th time taken
+              th Server Name
               th Status
               th Request Date
           tbody
@@ -43,7 +43,7 @@
                 td = result.total_non_adwords_links
                 td = result.total_count_of_links
                 td = result.total_number_of_records
-                td = result.time_taken
+                td = result.server_name
                 td
                   span  class="#{label_for(result.status)}"
                     = result.status

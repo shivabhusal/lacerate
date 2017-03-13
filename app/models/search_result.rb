@@ -28,6 +28,40 @@ class SearchResult < ApplicationRecord
   after_commit :update_report
 
   private
+
+  class << self
+    def word_query(word)
+      common_url_query { |link| link.include?(word) }
+    end
+
+    def url_query(url)
+      common_url_query { |link| link.include?(url) }
+    end
+
+    def caret_query
+      common_url_query { |link| (link.count('/') > 2 || link.count('>') > 1) }
+    end
+
+    def common_url_query(&logic)
+      results = { adwords_links_at_top: [], adwords_links_at_bottom: [], non_adwords_links: [] }
+      self.all.each do |result|
+        result.adwords_links_at_top.each do |link|
+          results[:adwords_links_at_top] << link if logic.call(link)
+        end
+
+        result.adwords_links_at_bottom.each do |link|
+          results[:adwords_links_at_bottom] << link if logic.call(link)
+        end
+
+        result.non_adwords_links.each do |link|
+          results[:non_adwords_links] << link if logic.call(link)
+        end
+      end
+      results
+    end
+
+  end
+
   def update_report
     if self.report.keyword_count == self.report.search_results.count
       self.report.done!
