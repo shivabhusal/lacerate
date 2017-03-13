@@ -16,6 +16,10 @@
         = link_to reports_path do
           i.fa.fa-dashboard.fa-fw
           |  Dashboard
+      li
+        = link_to queries_path do
+          i.fa.fa-database.fa-fw
+          |  Query Tools
       - if Rails.env.development?
         li
           a[href="#"]

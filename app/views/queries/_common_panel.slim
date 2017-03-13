@@ -1,0 +1,17 @@
+.panel-group.margin20top
+  h4 #{heading}
+  .panel.panel-default
+    .panel-heading
+      a.accordion-toggle.collapsed data-toggle="collapse" href="##{panel_id}"
+        p
+          | Adwords links at top: #{result[:non_adwords_links].count},
+          |  Adwords links at bottom: #{result[:adwords_links_at_bottom].count},
+          |  Non-Adwords links: #{result[:non_adwords_links].count}
+
+    .panel-collapse.collapse.out id="#{panel_id}"
+      .panel-body.overflow-y-scroll.max400height
+        .row
+          .col-md-8
+            ul.overflow-x-hidden
+              - result[:non_adwords_links].each do |link|
+                li = link_to link, link

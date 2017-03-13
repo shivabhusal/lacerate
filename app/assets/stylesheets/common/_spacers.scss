@@ -26,13 +26,13 @@ $types: margin padding;
   }
 }
 
-/* Eg: .min500height */
-/* Eg: .min4500height */
-/* Eg: .min100height */
-/* Eg: .min50height */
+/* Eg: .max500height */
+/* Eg: .max4500height */
+/* Eg: .max100height */
+/* Eg: .max50height */
 @for $index from 1 through 30 {
   $value: $index * 25;
-  .min#{$value}height {
-    min-height: #{$value}px;
+  .max#{$value}height {
+    max-height: #{$value}px;
   }
 }

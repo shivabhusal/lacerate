@@ -1,0 +1,21 @@
+.row.clearfix
+  .col-lg-12
+    h1.page-header
+      i.fa.fa-database
+      |  Query Results
+.row
+  .col-lg-8
+    = render 'common_panel',
+        heading: "How many URLs contain the word \“#{params[:query][:word]}\” in AdWords",
+        result: @result[:word] || ResultNullObject.new,
+        panel_id: 'query-word'
+
+    = render 'common_panel',
+        heading: "How many times a specific URL(#{params[:query][:url]}) shows up in SEO.",
+        result: @result[:url] || ResultNullObject.new,
+        panel_id: 'query-url'
+
+    = render 'common_panel',
+        heading: "How many keywords have URLs in SEO with 2+ /’s or 1+ >",
+        result: @result[:caret] || ResultNullObject.new,
+        panel_id: 'query-caret'
