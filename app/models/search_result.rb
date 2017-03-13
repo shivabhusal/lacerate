@@ -67,7 +67,7 @@ class SearchResult < ApplicationRecord
   private
 
     def update_report
-      if self.report.keyword_count == self.report.search_results.count
+      if self.report.keyword_count == (self.report.search_results.count -1)
         self.report.done!
       end
     end

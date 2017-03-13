@@ -18,6 +18,12 @@ Lacerate is an OpenSource Rails application under [MIT License](https://opensour
 - Total of search results for this keywords e.g. About 21,600,000 results (0.42 seconds) 
 - HTML code of the page/cache of the page.
 
+### Core Features
+- Live status update using polling in the dashboard : uses progress bar and live data update
+  -  ![alt tag](./app/assets/images/live_data_update.png)
+- Uses multiple servers to boostup performance
+- Scraps Google search pages efficiently
+
 ### Technical challenges
 #### Preventing Banning IP
 Google lets normal user to search queries as much they like, however, they don't like bots goofing around the site. So, suspecious activity can get our IP blacklisted for future access. So, we should not let that happen. Imitating human search patterns is the only way to get unnoticed by Google's bot detection algorithm. Things we gonna try are:- 

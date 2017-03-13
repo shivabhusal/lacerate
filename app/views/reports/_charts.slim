@@ -4,10 +4,11 @@
     .panel.panel-default
       .panel-heading
         i.fa.fa-bar-chart-o.fa-fw
-        |  Analytics: Reports made and Keywords searched per day for last 30 days
+        |  Analytics: Reports made and Keywords searched per day for last #{Config::DEFAULT_CHART_WINDOW} days
         .pull-right
           .btn-group
-            button.btn.btn-default.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown"]
+            button.padding15left.padding15right.btn.btn-default.btn-xs.dropdown-toggle[type="button" data-toggle="dropdown"]
+              i.fa.fa-filter
               |  Filters&nbsp;
               span.caret
             ul.dropdown-menu.pull-right[role="menu"]

@@ -14,6 +14,5 @@
 FactoryGirl.define do
   factory :report do
     payload { Rack::Test::UploadedFile.new(File.join(Rails.root, 'sample.csv')) }
-
   end
 end

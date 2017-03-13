@@ -28,7 +28,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-  has_many :reports
+
+  has_many :reports, dependent: :destroy
   has_many :search_results, through: :reports
 
   before_create :generate_authentication_token

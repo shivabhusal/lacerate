@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   layout 'dashboard'
+  respond_to :json, only: :status
 
   def index
     @reports = current_user.reports.try(status_params)
@@ -21,6 +22,19 @@ class ReportsController < ApplicationController
     else
       flash.now[:error] = @report.errors.messages
       render :new
+    end
+  end
+
+  # Returns status of the ongoing report to the browser
+  def status
+    @report = current_user.reports.find(params[:id])
+    @report.sync_status!
+
+    respond_with do |format|
+      format.json { render json:                                {
+          status:       @report.reload.status,
+          keyword_count: @report.keyword_count,
+          result_count: @report.search_results.count }, stauts: 200 }
     end
   end
 

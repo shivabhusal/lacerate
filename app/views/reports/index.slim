@@ -6,10 +6,6 @@
         i.fa.fa-plus
         |  New Report
 
-      = link_to reports_path, class: 'btn btn-lg btn-primary pull-right margin5left' do
-        i.fa.fa-list-ul
-        |  All Reports
-
 = render 'thumbnails', reports: @reports
 = render 'charts', reports: @reports
 
@@ -47,13 +43,28 @@
                   | &nbsp;
                   = report.payload.file.filename
                 td.center
-                  span  class="#{label_for(report.status)}"
+                  span class="#{label_for(report.status)}" id="status-#{report.id}"
                     = report.status
                   - if report.pending? || report.in_progress?
                     = image_tag 'loader.gif',
-                        title: 'Processing is in progress. Please refresh the page in a while to see if its done.',
+                        class: report.status,
+                        id: "loading-image-#{report.id}",
+                        data: {id: report.id},
+                        title: 'Processing is in progress.. You will see "Done" when it completes.',
                         width: 20
-                td.center
-                  = report.search_results.count
+                td.center width="5%"
+                  .row
+                    .col-xs-4
+                      span id="search-count-#{report.id}"
+                        = report.search_results.count
+                    .col-xs-8
+                      - if report.in_progress?
+                        .progress
+                          .progress-bar [id="progress-#{report.id}"
+                          role="progressbar"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 0%;"]
+                            span.sr-only 60%
                 td.center
                   = report.created_at

@@ -54,7 +54,7 @@ class GoogleScraper
   end
 
   def adwords_links_at_bottom
-    @adwords_links_at_bottom ||=  @response_dom.search('[data-jibp="h"] ._WGk').map { |x| x.children.text }
+    @adwords_links_at_bottom ||= @response_dom.search('._Ak#_Ktg .ellip a').map {|x| x.attributes['href'].value}
   end
 
   def total_adwords_advertisers_at_bottom
@@ -62,7 +62,7 @@ class GoogleScraper
   end
 
   def non_adwords_links
-    @non_adwords_links ||= @response_dom.search('#search .r a').map { |x| x.attributes['href'].value }
+    @non_adwords_links ||= @response_dom.search('#res #search .r a').map { |x| x.attributes['href'].value }
   end
 
   def number_of_results

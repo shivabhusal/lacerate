@@ -25,7 +25,7 @@ module ApplicationHelper
          {
              y: '#{i.days.ago.strftime('%Y-%m-%d %H:%M:%S')}',
              a: #{reports.from_date(i.days.ago).count},
-             b: #{reports.from_date(i.days.ago).map(&:keyword_count).sum}
+             b: #{reports.from_date(i.days.ago).map(&:keyword_count).sum rescue 0}
          }
         EOS
       end

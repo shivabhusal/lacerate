@@ -7,7 +7,12 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :reports
+  resources :reports do
+    member do
+      get :status, defaults: { format: 'json' }
+    end
+  end
+
   resources :search_results, only: :show do
     member do
       get :preview
@@ -37,13 +42,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :reports, defaults: { format: 'json' } do
-        resources :search_results, defaults: { format: 'json' }  do
+        resources :search_results, defaults: { format: 'json' } do
           member do
             get :preview
           end
         end
       end
-
 
       resources :queries, only: [] do
         collection do
