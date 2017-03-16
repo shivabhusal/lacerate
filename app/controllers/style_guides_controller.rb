@@ -1,3 +1,4 @@
+# TODO: What is this for?
 class StyleGuidesController < ApplicationController
   layout 'dashboard'
 
