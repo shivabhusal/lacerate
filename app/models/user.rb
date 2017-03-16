@@ -1,3 +1,4 @@
+# TODO: Question, why do we have 2 contributors?
 # == Schema Information
 #
 # Table name: users
