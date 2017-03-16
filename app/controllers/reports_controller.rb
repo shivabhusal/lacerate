@@ -31,10 +31,14 @@ class ReportsController < ApplicationController
     @report.sync_status!
 
     respond_with do |format|
-      format.json { render json:                                {
-          status:       @report.reload.status,
-          keyword_count: @report.keyword_count,
-          result_count: @report.search_results.count }, stauts: 200 }
+      format.json { 
+        render json: {
+          status:         @report.reload.status,
+          keyword_count:  @report.keyword_count,
+          result_count:   @report.search_results.count 
+        }, 
+        stauts: :ok
+      }
     end
   end
 
