@@ -28,6 +28,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
 
       format.json do
+        # TODO: This seems off why a double format json and different statuses?
         format.json { render json: { errors: [status: 401, detail: 'Bad credentials'] }, status: 404 }
       end
     end
